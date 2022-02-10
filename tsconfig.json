@@ -21,7 +21,9 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "skipDefaultLibCheck": true, // se agrego por error de angular@fire
+    "skipLibCheck": true // se agrego por error de angular@fire
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
