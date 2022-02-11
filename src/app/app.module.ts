@@ -9,6 +9,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 // routing
 import { AppRoutingModule } from './app-routing.module';
 
+// Ngrx
+import { StoreModule } from '@ngrx/store';
 
 // pipes
 import { SiNoPipe } from './pipes/Si-No/si-no.pipe';
@@ -27,6 +29,8 @@ import { DetalleComponent } from './modules/ingreso-egreso/detalle/detalle.compo
 import { EstadisticaComponent } from './modules/ingreso-egreso/estadistica/estadistica.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { appReducers } from './shared/reducers/app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -48,6 +52,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
+    StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+      autoPause: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
